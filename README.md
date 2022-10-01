@@ -8,7 +8,7 @@ This is a modified version of Radiant.
 
 Excerpt from Radiant:
 
-|"Radiant is an open-source platform-independent browser-based interface for business analytics in [R](https://www.r-project.org/). Radiant was developed by <a href="https://rady.ucsd.edu/faculty-research/faculty/vincent-nijs.html" target="\_blank">Vincent Nijs</a>. Please use the issue tracker on GitHub to suggest enhancements or report problems: https://github.com/radiant-rstats/radiant.data/issues. For other questions and comments please use radiant@rady.ucsd.edu."
+| "Radiant is an open-source platform-independent browser-based interface for business analytics in [R](https://www.r-project.org/). Radiant was developed by <a href="https://rady.ucsd.edu/faculty-research/faculty/vincent-nijs.html" target="\_blank">Vincent Nijs</a>. Please use the issue tracker on GitHub to suggest enhancements or report problems: https://github.com/radiant-rstats/radiant.data/issues. For other questions and comments please use radiant@rady.ucsd.edu."
 
 ## Added Features:
 - **Save Function for CKAN**: Sends radiant state file to a targeted CKAN Server (igenomed.stanford.edu), allowing users to share their current progress and collaborate in Radiant.
