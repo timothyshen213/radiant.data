@@ -10,9 +10,9 @@ Radiant is an open-source platform-independent browser-based interface for busin
 
 ## Added Features:
 - **Save Function for CKAN**: Sends radiant state file to a targeted CKAN Server (igenomed.stanford.edu), allowing users to share their current progress and collaborate in Radiant. (https://github.com/timothyshen213/radiant.data)
-- **Diganostic Function for Linear Regression**: Linear regression now offers the ability to run diagnostics tests to verify the validity of the assumptions. 
-- **Analysis of Variance (ANOVA) Feature**: Data can now be fitted to an ANOVA Model. Features offers the ability to customize between one-way and two-way models.
-- **Principal Component Analysis (PCA) Feature**: Numerical variables can now be ran through a PCA Analysis. Features also offers the ability to visualize the anlaysis through biplot and screeplot.
+- **Diganostic Function for Linear Regression**: Linear regression now offers the ability to run diagnostics tests to verify the validity of the assumptions. (https://github.com/timothyshen213/radiant.model)
+- **Analysis of Variance (ANOVA) Feature**: Data can now be fitted to an ANOVA Model. Features offers the ability to customize between one-way and two-way models. (https://github.com/timothyshen213/radiant.model)
+- **Principal Component Analysis (PCA) Feature**: Numerical variables can now be ran through a PCA Analysis. Features also offers the ability to visualize the anlaysis through biplot and screeplot. (https://github.com/timothyshen213/radiant.multivariate)
 
 Added features by Timothy Shen (https://github.com/timothyshen213).
 
