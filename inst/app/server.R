@@ -22,6 +22,12 @@ shinyServer(function(input, output, session) {
   #   }
   # ))
 
+  # observeEvent(input$ckan_submit, {
+  #   withProgress(message = "Sending to Server!", value = 1, {
+  #     saveckan(input$state_ckan_inputs)
+  #   })
+  # })
+
   ## save state on refresh or browser close
   saveStateOnRefresh(session)
 })

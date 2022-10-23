@@ -569,7 +569,9 @@ options(
         icon = icon("save", verify_fa = FALSE),
         ## inspiration for uploading state https://stackoverflow.com/a/11406690/1974918
         ## see also function in www/js/run_return.js
-        "Server",
+        "Send to igenomed.stanford.edu",
+        tabPanel("Send radiant state file to Database", uiOutput("ckan")),
+        "----","Server",
         tabPanel(actionLink("state_save_link", "Save radiant state file", icon = icon("download", verify_fa = FALSE))),
         tabPanel(actionLink("state_load_link", "Load radiant state file", icon = icon("upload", verify_fa = FALSE))),
         tabPanel(actionLink("state_share", "Share radiant state", icon = icon("share", verify_fa = FALSE))),
@@ -626,6 +628,7 @@ onStop(function() {
     stopApp()
   }
 })
+
 
 ## Show NA and Inf in DT tables
 ## https://github.com/rstudio/DT/pull/513

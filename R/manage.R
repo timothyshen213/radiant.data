@@ -81,3 +81,80 @@ fix_names <- function(x, lower = FALSE) {
     {if (lower) tolower(.) else .}
   if (isdf) stats::setNames(x, cn) else cn
 }
+#' #' Send files to CKAN Server
+#' #'
+#' #' @details Sends radiant state file to a specific CKAN server (igenomed.stanford.edu)
+#' #' @param author author
+#' #' @param authemail author email
+#' #' @param title_ckan title
+#' #' @export
+#' saveckan <- function(author, authemail, title_ckan){
+#'   download_handler <- function(id, label = "", fun = id, fn, type = "csv", caption = "Save to csv",
+#'                                class = "", ic = "download", btn = "link", onclick = "function() none;", ...) {
+#'     ## create observer
+#'     shinyFiles::shinyFileSave(input, id, roots = sf_volumes, session = session)
+#'
+#'     ## create renderUI
+#'     if (btn == "link") {
+#'       output[[paste0("ui_", id)]] <- renderUI({
+#'         if (is.function(fn)) fn <- fn()
+#'         if (is.function(type)) type <- type()
+#'         shinyFiles::shinySaveLink(
+#'           id, label, caption,
+#'           filename = fn, filetype = type,
+#'           class = "alignright", icon = icon(ic, verify_fa = FALSE), onclick = onclick
+#'         )
+#'       })
+#'     } else {
+#'       output[[paste0("ui_", id)]] <- renderUI({
+#'         if (is.function(fn)) fn <- fn()
+#'         if (is.function(type)) type <- type()
+#'         shinyFiles::shinySaveButton(
+#'           id, label, caption,
+#'           filename = fn, filetype = type,
+#'           class = class, icon = icon("download", verify_fa = FALSE), onclick = onclick
+#'         )
+#'       })
+#'     }
+#'
+#'     observeEvent(input[[id]], {
+#'       if (is.integer(input[[id]])) {
+#'         return()
+#'       }
+#'       path <- shinyFiles::parseSavePath(sf_volumes, input[[id]])
+#'       if (!inherits(path, "try-error") && !radiant.data::is_empty(path$datapath)) {
+#'         fun(path$datapath, ...)
+#'       }
+#'     })
+#'   }
+#'   saveState_CKAN <- function(filename) {
+#'     withProgress(
+#'       message = "Preparing radiant state file", value = 1,
+#'       isolate({
+#'         LiveInputs <- toList(input)
+#'         r_state[names(LiveInputs)] <- LiveInputs
+#'         r_data <- active2list(r_data)
+#'         r_info <- toList(r_info)
+#'         save(r_state, r_data, r_info, file = filename)
+#'       })
+#'     )
+#'   }
+#'   state_file<- download_handler(
+#'     id = "state_ckan",
+#'     label = "Save",
+#'     fun = saveState_CKAN,
+#'     fn = function() state_name_dlh() %>% sans_ext(),
+#'     type = function() {
+#'       state_name_dlh() %>%
+#'         {
+#'           if (grepl("\\.state\\.rda", .)) "state.rda" else tools::file_ext(.)
+#'         }
+#'     },
+#'     btn = "button",
+#'     caption = "Save radiant state file"
+#'   )
+#'   key1="cd92b0b4-8606-49d3-9a3e-23587790ffe3"
+#'   ckanr_setup(url = "https://igenomed.stanford.edu/", key = key1)
+#'   ckan_file<-package_create(title=title_ckan, author = author, author_email = authemail, owner_org="Radiant State", name="Radiant State")
+#'   resource_create(package_id = ckan_file$id, upload = state_file, rcurl = "https://igenomed.stanford.edu/", description = "Radiant State File, download to load file")
+#' }
