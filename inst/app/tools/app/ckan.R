@@ -81,7 +81,7 @@ saveckan1 <- function(author, authemail, title_ckan, name_ckan, description_ckan
         save(r_state, r_data, r_info, file = path2)
       }
     )
-  key1="cd92b0b4-8606-49d3-9a3e-23587790ffe3" ## CHANGE FOR SERVER ##
+  key1=decode_apikey(r_info[["api_key"]])
   ckanr::ckanr_setup(url = "https://igenomed.stanford.edu/", key = key1)
   ckan_file<-ckanr::package_create(title=title_ckan, author = author, author_email = authemail, owner_org="test", name=name_ckan)
   ckanr::resource_create(package_id = ckan_file$id, upload = path2 , rcurl = paste("https://igenomed.stanford.edu/dataset/",name_ckan,sep=""), description = description_ckan, name = title_ckan2, format="STATE.RDA") ## CHANGE FOR SERVER ##
